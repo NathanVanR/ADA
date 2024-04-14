@@ -1,12 +1,14 @@
 import customtkinter as ctk
 import cohere
 import uuid
+import os
 
 # conversation_id is for conversation history to help with context
 conversation_id = str(uuid.uuid4())
 
 # call model co with api key
-co = cohere.Client(api_key="fRaQJUNrWFeUzObmf77ckYyQNmFFGxvwJ81bfi4I")
+api_key = os.environ.get('COHERE_API_KEY')
+co = cohere.Client(api_key=api_key)
 
 # preamble is to help with better responses
 preamble = "You are my AI assistant, ADA. You are named after the famous computer scientist, Ada Lovelace."
